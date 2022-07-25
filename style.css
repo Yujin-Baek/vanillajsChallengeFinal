@@ -3,84 +3,98 @@
 }
 
 body {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
+    background-size: cover;
+    height: 90vh;
+    background-repeat: no-repeat;
 }
 
-h1 {
-    color: white;
-    text-align: center;
+.container {
+    display: grid;
+    grid-template: "headerContainer" 2fr
+                    "todoContainer" 3fr;
+}
+
+.headerContainer {
+    display: grid;
+    grid-area: headerContainer;
+    grid-template: "clockBox titleBox weatherBox" 1fr / 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    color: #F0F8FF;
+    /* backdrop-filter: blur(70px); */
+}
+
+.clockBox {
+    grid-area: clockBox;
+}
+
+#clock {
+    font-size: 35px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.titleBox {
+    grid-area: titleBox;
+}
+
+#title {
     font-size: 50px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration:overline underline 2px;
 }
 
-h2 {
-    color : white;
+#greeting {
     text-align: center;
+    font-size: 45px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: initial;
 }
 
-#clock {
-    font-size: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: top;
-    color : white;
-    margin-top: 0%;
+.weatherBox {
+    grid-area: weatherBox;
 }
 
 #weather {
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size:25px;
+    font-size:30px;
     font-weight: 500;
-    text-align: center;
-    color : white;
-    text-decoration: overline;
+    text-decoration:wavy;
     font-family: 'Courier New', Courier, monospace;
     font-style:initial;
 }
 
-#greeting {
-    font-size:45px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color : white;
-    font-style: initial;
-    text-align: center;
-    position: relative;
+.todoContainer {
+    display: grid;
+    grid-area: todoContainer;
+    grid-template: ". todo-form ." 1fr 
+                    " . todo-list ." 10fr/ 0.6fr 1fr 0.6fr;
+    backdrop-filter: blur(70px);
+    margin-left: 450px;
+    margin-right: 450px;
+    justify-content: center;
 }
 
 #todo-form {
+    grid-area: todo-form;
     text-align: center;
-    position:absolute;
-    left:70px;
+    align-self: center;
+}
 
+input[type=text] {
+    width: 200px;
+    height: 20px;
+    border: 0;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #todo-list {
-    position:absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    list-style: none;
-    margin-top:120px;
-    padding:0px;
-    text-align: left;
+    grid-area: todo-list;
 }
 
 li {
-    position: relative;
-    color: white;
-    border-bottom: 1px inset white;
+    color: #F0F8FF;
+    border-bottom: 1px inset #F0F8FF;
     border-width: 3px;
-}
-
-#header {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 50px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

@@ -23,7 +23,19 @@ function paintToDo(newTodo) {
     span.innerText = newTodo.text;
     const button = document.createElement("button");
     button.innerText = "x";
+    button.style.fontFamily = "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+    button.style.backgroundColor = "#F0F8FF";
+    button.style.borderRadius = "5px";
+    button.style.boxShadow = "1px 1px 0px 0px #708090";
+    button.style.marginLeft = "5px";
+    button.style.marginBottom = "1px";
     button.addEventListener("click", deleteToDo);
+    button.addEventListener("mouseenter", function() {
+        button.style.backgroundColor = "#B0C4DE";
+    });
+    button.addEventListener("mouseleave", function() {
+        button.style.backgroundColor = "#F0F8FF";
+    });
     li.appendChild(span);
     li.appendChild(button);
     toDoList.appendChild(li);
